@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+app.get('/', (req, res) => res.send('Proszę zadziałaj'));
+
+app.listen(PORT, () => console.log('app listening on port 3000'));
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/nodeappdatabase', {
+mongoose.connect('mongodb://mateusz_kucharczyk:Zaq123wsx!@ds145223.mlab.com:45223/zadanie', {
     useMongoClient: true
 });
 
