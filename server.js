@@ -3,9 +3,7 @@ const Schema = mongoose.Schema;
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://mateusz_kucharczyk:Zaq123wsx!@ds145223.mlab.com:45223/zadanie', {
-    useMongoClient: true
-});
+mongoose.connect('mongodb://mateusz_kucharczyk:Zaq123wsx!@ds145223.mlab.com:45223/zadanie' , {useNewUrlParser: true });
 
 //new user Schema
 const userSchema = new Schema({
