@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-app.get('/', (req, res) => res.send('Proszę zadziałaj'));
-
-app.listen(PORT, () => console.log('app listening on port 3000'));
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://mateusz_kucharczyk:Zaq123wsx!@ds145223.mlab.com:45223/zadanie', {
@@ -158,3 +155,14 @@ Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findKennyAndDelete)
     .then(findBennyAndRemove)
     .catch(console.log.bind(console))
+
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
